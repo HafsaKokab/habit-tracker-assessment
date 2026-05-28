@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker - Build Better Habits</title>
+    <meta name="description" content="Track your daily habits with a premium weekly grid interface. Build streaks and celebrate milestones.">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/grid.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="app" class="app-container">
+        <header class="app-header">
+            <h1 class="app-title">Habit Tracker</h1>
+            <div class="week-navigation" role="navigation" aria-label="Week navigation">
+                <button id="prev-week" class="nav-button" aria-label="Previous week">
+                    <span aria-hidden="true">‹</span>
+                    <span class="sr-only">Previous week</span>
+                </button>
+                <button id="current-week" class="nav-button current-week-btn" aria-label="Go to current week">
+                    This Week
+                </button>
+                <button id="next-week" class="nav-button" aria-label="Next week">
+                    <span aria-hidden="true">›</span>
+                    <span class="sr-only">Next week</span>
+                </button>
+            </div>
+            <div class="current-week-display" id="week-display" aria-live="polite">
+                <!-- Week range will be displayed here -->
+            </div>
+        </header>
+
+        <main class="app-main">
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <div class="empty-state-content">
+                    <h2 class="empty-state-title">Start Building Your Habits</h2>
+                    <p class="empty-state-description">
+                        Add your first habit to begin tracking your daily progress. 
+                        Examples: "Exercise 30 min", "Read before bed", "Drink 8 glasses of water"
+                    </p>
+                    <button id="add-first-habit" class="cta-button" aria-describedby="empty-state-description">
+                        Add Your First Habit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Habit Management -->
+            <div id="habit-management" class="habit-management" style="display: none;">
+                <div class="add-habit-form">
+                    <div class="input-group">
+                        <label for="habit-input" class="sr-only">Habit name</label>
+                        <input 
+                            type="text" 
+                            id="habit-input" 
+                            class="habit-input" 
+                            placeholder="Enter habit name (e.g., Exercise 30 min)"
+                            maxlength="100"
+                            aria-describedby="habit-input-error"
+                        >
+                        <button id="add-habit" class="add-button" type="button">
+                            Add Habit
+                        </button>
+                    </div>
+                    <div id="habit-input-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Weekly Grid -->
+                <div id="weekly-grid" class="weekly-grid-container">
+                    <div class="grid-header">
+                        <div class="habit-column-header">Habits</div>
+                        <div class="day-headers" role="row">
+                            <div class="day-header" role="columnheader">Mon</div>
+                            <div class="day-header" role="columnheader">Tue</div>
+                            <div class="day-header" role="columnheader">Wed</div>
+                            <div class="day-header" role="columnheader">Thu</div>
+                            <div class="day-header" role="columnheader">Fri</div>
+                            <div class="day-header" role="columnheader">Sat</div>
+                            <div class="day-header" role="columnheader">Sun</div>
+                        </div>
+                    </div>
+                    <div id="habits-grid" class="habits-grid" role="grid" aria-label="Weekly habit tracking grid">
+                        <!-- Habit rows will be dynamically generated here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Error Toast -->
+        <div id="error-toast" class="error-toast" role="alert" aria-live="assertive" style="display: none;">
+            <span id="error-message"></span>
+            <button id="dismiss-error" class="dismiss-button" aria-label="Dismiss error">×</button>
+        </div>
+
+        <!-- Success Toast -->
+        <div id="success-toast" class="success-toast" role="status" aria-live="polite" style="display: none;">
+            <span id="success-message"></span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
