@@ -1,0 +1,810 @@
+/* Responsive design */
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .app-container {
+        padding: 2rem;
+    }
+    
+    .app-header {
+        padding: 2.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .app-title {
+        font-size: 3.5rem;
+        flex: 1;
+        text-align: left;
+        margin: 0;
+    }
+    
+    .week-navigation {
+        order: 2;
+        gap: 0.75rem;
+    }
+    
+    .current-week-display {
+        order: 3;
+        text-align: right;
+        min-width: 200px;
+    }
+    
+    .habit-info {
+        padding: 1.5rem;
+    }
+    
+    .completion-cell {
+        min-height: 80px;
+        min-width: 70px;
+    }
+    
+    .grid-header {
+        grid-template-columns: minmax(220px, 1fr) repeat(7, minmax(70px, 1fr));
+    }
+    
+    .habit-row {
+        grid-template-columns: minmax(220px, 1fr) repeat(7, minmax(70px, 1fr));
+    }
+}
+
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .app-container {
+        padding: 1.5rem;
+    }
+    
+    .app-header {
+        padding: 1.75rem;
+    }
+    
+    .app-title {
+        font-size: 2.5rem;
+    }
+    
+    .grid-header {
+        grid-template-columns: minmax(180px, 1fr) repeat(7, minmax(55px, 1fr));
+    }
+    
+    .habit-row {
+        grid-template-columns: minmax(180px, 1fr) repeat(7, minmax(55px, 1fr));
+    }
+    
+    .habit-info {
+        padding: 1.1rem;
+    }
+    
+    .completion-cell {
+        min-height: 65px;
+        min-width: 55px;
+    }
+    
+    .day-header {
+        font-size: 0.8rem;
+        padding: 1rem 0.5rem;
+    }
+    
+    .checkmark {
+        font-size: 1.3rem;
+    }
+    
+    .completion-cell:not(.completed)::before {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 767px) {
+    .app-header {
+        padding: 1.5rem;
+    }
+    
+    .app-title {
+        font-size: 2rem;
+    }
+    
+    .week-navigation {
+        gap: 0.5rem;
+    }
+    
+    .nav-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .grid-header {
+        grid-template-columns: minmax(160px, 1fr) repeat(7, minmax(48px, 1fr));
+    }
+    
+    .habit-row {
+        grid-template-columns: minmax(160px, 1fr) repeat(7, minmax(48px, 1fr));
+    }
+    
+    .habit-info {
+        padding: 1rem;
+    }
+    
+    .habit-name {
+        font-size: 0.9rem;
+    }
+    
+    .habit-streak {
+        font-size: 0.75rem;
+    }
+    
+    .completion-cell {
+        min-height: 58px;
+        min-width: 48px;
+    }
+    
+    .day-header {
+        font-size: 0.75rem;
+        padding: 0.75rem 0.5rem;
+        min-height: 58px;
+    }
+    
+    .checkmark {
+        font-size: 1.2rem;
+    }
+    
+    .completion-cell:not(.completed)::before {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .habit-action-btn {
+        min-width: 32px;
+        min-height: 32px;
+    }
+}
+
+/* Mobile large */
+@media (min-width: 480px) and (max-width: 599px) {
+    .app-container {
+        padding: 1rem;
+    }
+    
+    .app-header {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .app-title {
+        font-size: 1.75rem;
+    }
+    
+    .app-title::after {
+        margin-left: 0.25rem;
+        font-size: 1.3rem;
+    }
+    
+    .week-navigation {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .nav-button {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+        flex: 1;
+        min-width: 80px;
+    }
+    
+    .current-week-btn {
+        order: -1;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .habit-input,
+    .add-button {
+        font-size: 16px;
+    }
+    
+    .add-button {
+        width: 100%;
+    }
+    
+    .grid-header {
+        grid-template-columns: minmax(130px, 1fr) repeat(7, minmax(44px, 1fr));
+    }
+    
+    .habit-row {
+        grid-template-columns: minmax(130px, 1fr) repeat(7, minmax(44px, 1fr));
+    }
+    
+    .habit-info {
+        padding: 0.8rem;
+        min-height: 60px;
+    }
+    
+    .habit-name {
+        font-size: 0.85rem;
+    }
+    
+    .habit-streak {
+        font-size: 0.7rem;
+    }
+    
+    .habit-actions {
+        opacity: 1;
+        gap: 0.5rem;
+    }
+    
+    .completion-cell {
+        min-height: 50px;
+        min-width: 44px;
+    }
+    
+    .day-header {
+        font-size: 0.7rem;
+        padding: 0.6rem 0.3rem;
+        min-height: 50px;
+    }
+    
+    .day-name {
+        font-size: 0.65rem;
+    }
+    
+    .day-number {
+        font-size: 0.9rem;
+    }
+    
+    .checkmark {
+        font-size: 1rem;
+    }
+    
+    .completion-cell:not(.completed)::before {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .habit-action-btn {
+        min-width: 32px;
+        min-height: 32px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile small */
+@media (min-width: 360px) and (max-width: 479px) {
+    .app-container {
+        padding: 0.75rem;
+    }
+    
+    .app-header {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+    
+    .app-title {
+        font-size: 1.4rem;
+    }
+    
+    .app-title::after {
+        margin-left: 0.25rem;
+        font-size: 1rem;
+    }
+    
+    .week-navigation {
+        flex-direction: row;
+        gap: 0.4rem;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .nav-button {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.75rem;
+        flex: 1;
+        min-width: 70px;
+    }
+    
+    .current-week-display {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+    
+    .habit-management {
+        padding: 1rem;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    
+    .habit-input {
+        font-size: 16px;
+        padding: 0.75rem;
+    }
+    
+    .add-button {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 0.75rem;
+    }
+    
+    .weekly-grid-container {
+        margin: 0 -0.75rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .grid-header {
+        grid-template-columns: minmax(110px, 1fr) repeat(7, minmax(44px, 1fr));
+    }
+    
+    .habit-row {
+        grid-template-columns: minmax(110px, 1fr) repeat(7, minmax(44px, 1fr));
+    }
+    
+    .habit-column-header {
+        padding: 0.75rem 0.4rem;
+        font-size: 0.7rem;
+    }
+    
+    .habit-info {
+        padding: 0.7rem 0.4rem;
+        min-height: 55px;
+    }
+    
+    .habit-name {
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .habit-streak {
+        font-size: 0.65rem;
+        gap: 0.3rem;
+    }
+    
+    .streak-icon {
+        font-size: 0.9rem;
+    }
+    
+    .habit-actions {
+        opacity: 1;
+        gap: 0.3rem;
+    }
+    
+    .habit-action-btn {
+        min-width: 28px;
+        min-height: 28px;
+        font-size: 0.75rem;
+        padding: 0.25rem;
+    }
+    
+    .completion-cell {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .day-header {
+        font-size: 0.65rem;
+        padding: 0.5rem 0.2rem;
+        min-height: 44px;
+    }
+    
+    .day-name {
+        font-size: 0.6rem;
+    }
+    
+    .day-number {
+        font-size: 0.85rem;
+    }
+    
+    .checkmark {
+        font-size: 0.95rem;
+    }
+    
+    .completion-cell:not(.completed)::before {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+    
+    .empty-state-content {
+        padding: 2rem 1rem;
+    }
+    
+    .empty-state-title {
+        font-size: 1.25rem;
+    }
+    
+    .empty-state-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-button {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra Small Mobile (320px - 359px) */
+@media (max-width: 359px) {
+    .app-container {
+        padding: 0.5rem;
+    }
+    
+    .app-header {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .app-title {
+        font-size: 1.2rem;
+    }
+    
+    .app-title::after {
+        display: none;
+    }
+    
+    .week-navigation {
+        gap: 0.25rem;
+    }
+    
+    .nav-button {
+        padding: 0.5rem;
+        font-size: 0.7rem;
+        min-width: 36px;
+    }
+    
+    .current-week-display {
+        font-size: 0.75rem;
+    }
+    
+    .habit-management {
+        padding: 0.75rem;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .habit-input {
+        font-size: 16px;
+        padding: 0.65rem;
+    }
+    
+    .add-button {
+        width: 100%;
+        padding: 0.65rem;
+        font-size: 0.85rem;
+    }
+    
+    .grid-header {
+        grid-template-columns: minmax(90px, 1fr) repeat(7, minmax(40px, 1fr));
+    }
+    
+    .habit-row {
+        grid-template-columns: minmax(90px, 1fr) repeat(7, minmax(40px, 1fr));
+    }
+    
+    .habit-column-header {
+        padding: 0.5rem 0.3rem;
+        font-size: 0.65rem;
+    }
+    
+    .habit-info {
+        padding: 0.5rem 0.3rem;
+        min-height: 44px;
+    }
+    
+    .habit-name {
+        font-size: 0.75rem;
+    }
+    
+    .habit-streak {
+        font-size: 0.6rem;
+        gap: 0.2rem;
+    }
+    
+    .habit-actions {
+        opacity: 1;
+        gap: 0.2rem;
+    }
+    
+    .habit-action-btn {
+        min-width: 24px;
+        min-height: 24px;
+        font-size: 0.65rem;
+        padding: 0.2rem;
+    }
+    
+    .completion-cell {
+        min-height: 40px;
+        min-width: 40px;
+    }
+    
+    .day-header {
+        font-size: 0.6rem;
+        padding: 0.4rem 0.15rem;
+        min-height: 40px;
+    }
+    
+    .day-name {
+        font-size: 0.55rem;
+    }
+    
+    .day-number {
+        font-size: 0.8rem;
+    }
+    
+    .checkmark {
+        font-size: 0.85rem;
+    }
+    
+    .completion-cell:not(.completed)::before {
+        width: 12px;
+        height: 12px;
+        border-width: 1.5px;
+    }
+    
+    .error-toast,
+    .success-toast {
+        bottom: 1rem;
+        right: 0.5rem;
+        left: 0.5rem;
+        max-width: none;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+    .app-header {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .app-title {
+        font-size: 1.2rem;
+    }
+    
+    .app-title::after {
+        display: none;
+    }
+    
+    .empty-state {
+        padding: 1.5rem 1rem;
+    }
+    
+    .empty-state-content {
+        padding: 1.5rem;
+    }
+    
+    .empty-state-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .empty-state-description {
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .cta-button {
+        padding: 0.65rem 1.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .habit-info {
+        min-height: 48px;
+    }
+    
+    .completion-cell {
+        min-height: 42px;
+    }
+    
+    .day-header {
+        min-height: 42px;
+        padding: 0.5rem 0.3rem;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .habit-row:hover {
+        background: rgba(139, 92, 246, 0.05);
+        transform: none;
+    }
+    
+    .habit-info::before {
+        opacity: 0;
+    }
+    
+    .habit-actions {
+        opacity: 1;
+    }
+    
+    .completion-cell:hover {
+        background: transparent;
+        transform: none;
+    }
+    
+    .completion-cell:active {
+        transform: scale(0.92);
+    }
+    
+    .nav-button:hover {
+        transform: none;
+    }
+    
+    .nav-button:active {
+        transform: scale(0.95);
+    }
+    
+    .habit-action-btn:hover {
+        transform: none;
+    }
+    
+    .habit-action-btn:active {
+        transform: scale(0.92);
+    }
+    
+    .cta-button:hover {
+        transform: none;
+    }
+    
+    .cta-button:active {
+        transform: scale(0.95);
+    }
+    
+    .add-button:hover {
+        transform: none;
+    }
+    
+    .add-button:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+    }
+    
+    body::before {
+        display: none;
+    }
+    
+    .app-header {
+        background: white;
+        box-shadow: none;
+        border: none;
+    }
+    
+    .habit-actions {
+        display: none;
+    }
+    
+    .completion-cell {
+        cursor: default;
+    }
+    
+    .completion-cell:hover {
+        background: inherit;
+        transform: none;
+    }
+    
+    .error-toast,
+    .success-toast {
+        display: none;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .checkmark {
+        font-weight: 600;
+    }
+    
+    .completion-cell:not(.completed)::before {
+        border-width: 1.5px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+    }
+    
+    .app-header,
+    .habit-management {
+        background: #1e293b;
+        border-color: #334155;
+    }
+    
+    .grid-header,
+    .habit-column-header,
+    .day-header {
+        background: #334155;
+        color: #e2e8f0;
+        border-color: #475569;
+    }
+    
+    .habit-info,
+    .completion-cell {
+        background: #1e293b;
+        border-color: #475569;
+    }
+    
+    .habit-row:hover {
+        background: #334155;
+    }
+    
+    .completion-cell:hover {
+        background: #334155;
+    }
+    
+    .completion-cell.today {
+        background: #1e40af;
+    }
+    
+    .completion-cell.completed {
+        background: #166534;
+    }
+    
+    .habit-input {
+        background: #334155;
+        border-color: #475569;
+        color: #e2e8f0;
+    }
+    
+    .habit-input::placeholder {
+        color: #94a3b8;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .app-container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .week-navigation,
+    .add-habit-form,
+    .habit-actions,
+    .error-toast,
+    .success-toast {
+        display: none !important;
+    }
+    
+    .app-header {
+        background: white;
+        box-shadow: none;
+        border-bottom: 2px solid #000;
+        margin-bottom: 1rem;
+    }
+    
+    .weekly-grid-container {
+        border: 2px solid #000;
+    }
+    
+    .completion-cell.completed {
+        background: #000 !important;
+        color: white;
+    }
+    
+    .checkmark {
+        color: white;
+    }
+}
