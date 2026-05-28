@@ -1,0 +1,502 @@
+/* Grid CSS */
+
+/* Grid header */
+.grid-header {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) repeat(7, minmax(60px, 1fr));
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.habit-column-header {
+    padding: 1.25rem 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-right: 1px solid rgba(226, 232, 240, 0.08);
+    display: flex;
+    align-items: center;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.day-headers {
+    display: contents;
+}
+
+.day-header {
+    padding: 1.25rem 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border-right: 1px solid rgba(226, 232, 240, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    background: transparent;
+    min-height: 70px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.day-header:last-child {
+    border-right: none;
+}
+
+.day-name {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.day-number {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.day-header.today {
+    background: rgba(6, 182, 212, 0.15);
+    border-bottom: 2px solid var(--secondary-color);
+    color: var(--secondary-light);
+}
+
+.day-header.today .day-number {
+    color: var(--secondary-light);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Habits grid */
+.habits-grid {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+.habit-row {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) repeat(7, minmax(60px, 1fr));
+    border-bottom: 1px solid rgba(226, 232, 240, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideInUp 0.4s ease-out both;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.habit-row:hover {
+    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateX(4px);
+}
+
+.habit-row:last-child {
+    border-bottom: none;
+}
+
+/* Habit Info Cell - Premium Card */
+.habit-info {
+    padding: 1.25rem;
+    border-right: 1px solid rgba(226, 232, 240, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 70px;
+    background: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.habit-info::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 2px;
+}
+
+.habit-row:hover .habit-info::before {
+    opacity: 1;
+}
+
+.habit-details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.habit-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.habit-row:hover .habit-name {
+    color: var(--secondary-light);
+}
+
+.habit-streak {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.streak-icon {
+    font-size: 1rem;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.streak-number {
+    font-weight: 700;
+    color: var(--success-light);
+    background: linear-gradient(135deg, var(--success-color) 0%, var(--success-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 24px;
+}
+
+.streak-number.milestone {
+    animation: glowPulse 0.8s ease-in-out;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 0px var(--success-color));
+    }
+    50% {
+        filter: drop-shadow(0 0 8px var(--success-color));
+    }
+}
+
+.streak-label {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.habit-actions {
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.habit-row:hover .habit-actions {
+    opacity: 1;
+}
+
+.habit-action-btn {
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    min-width: 32px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+.habit-action-btn:hover {
+    background: rgba(139, 92, 246, 0.4);
+    color: var(--primary-light);
+    transform: scale(1.1);
+}
+
+.habit-action-btn.edit:hover {
+    background: rgba(6, 182, 212, 0.3);
+    border-color: var(--secondary-color);
+    color: var(--secondary-light);
+}
+
+.habit-action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.3);
+    border-color: var(--danger-color);
+    color: var(--danger-color);
+}
+
+.habit-action-btn:active {
+    transform: scale(0.95);
+}
+
+/* Completion Cells - Premium Style */
+.completion-cell {
+    border-right: 1px solid rgba(226, 232, 240, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    min-height: 70px;
+    min-width: 60px;
+    position: relative;
+    background: transparent;
+    font-size: 1.5rem;
+}
+
+.completion-cell:last-child {
+    border-right: none;
+}
+
+.completion-cell:hover {
+    background: rgba(139, 92, 246, 0.12);
+    transform: scale(1.05);
+}
+
+.completion-cell:active {
+    transform: scale(0.92);
+}
+
+.completion-cell.today {
+    background: rgba(6, 182, 212, 0.15);
+    border-right-color: rgba(6, 182, 212, 0.2);
+}
+
+.completion-cell.today:hover {
+    background: rgba(6, 182, 212, 0.25);
+}
+
+/* Completed Cell with Premium Styling */
+.completion-cell.completed {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%);
+    border-right-color: rgba(16, 185, 129, 0.3);
+}
+
+.completion-cell.completed:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0.15) 100%);
+}
+
+.completion-cell.completed.today {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(6, 182, 212, 0.2) 100%);
+}
+
+.completion-cell.completed.today:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.4) 0%, rgba(6, 182, 212, 0.3) 100%);
+}
+
+/* Checkmark Styles - Enhanced */
+.checkmark {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--success-light);
+    opacity: 0;
+    transform: scale(0.3);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.completion-cell.completed .checkmark {
+    opacity: 1;
+    transform: scale(1);
+    animation: checkmarkBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes checkmarkBounce {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    75% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Empty Indicator - Enhanced */
+.completion-cell:not(.completed)::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border: 2px solid rgba(139, 92, 246, 0.4);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.completion-cell:not(.completed):hover::before {
+    border-color: var(--primary-color);
+    background: rgba(139, 92, 246, 0.1);
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
+}
+
+.completion-cell.today:not(.completed)::before {
+    border-color: var(--secondary-color);
+    background: rgba(6, 182, 212, 0.08);
+}
+
+/* Edit Mode Styles */
+.habit-edit-input {
+    display: none;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: rgba(15, 23, 42, 0.8);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.habit-edit-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.habit-info.edit-mode .habit-name {
+    display: none;
+}
+
+.habit-info.edit-mode .habit-edit-input {
+    display: block;
+}
+
+.habit-info.edit-mode .habit-actions {
+    opacity: 1;
+}
+
+/* Loading States */
+.completion-cell.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.completion-cell.loading::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(6, 182, 212, 0.3);
+    border-top: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Accessibility Enhancements */
+.completion-cell:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: -1px;
+    z-index: 5;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+    border-radius: 4px;
+}
+
+.completion-cell[aria-pressed="true"] {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%);
+}
+
+/* Empty Grid Message */
+.empty-grid-message {
+    padding: 3rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Screen Reader Descriptions */
+.completion-cell .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .completion-cell {
+        border-width: 2px;
+    }
+    
+    .completion-cell.completed {
+        border: 2px solid var(--success-color);
+    }
+    
+    .completion-cell:not(.completed)::before {
+        border-width: 3px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .habit-actions {
+        display: none;
+    }
+    
+    .completion-cell {
+        cursor: default;
+    }
+    
+    .completion-cell:hover {
+        background: inherit;
+        transform: none;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .habit-row,
+    .completion-cell,
+    .habit-action-btn,
+    .checkmark,
+    .streak-number {
+        animation: none !important;
+        transition: none !important;
+    }
+}
